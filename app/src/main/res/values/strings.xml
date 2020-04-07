@@ -1,0 +1,83 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">DSC Centre</string>
+
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="network_default_error">Something wrong happened, please retry again</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time
+    </string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="network_login_again">Please log in again</string>
+
+    <!--menu -->
+    <string name="menu_step1">Step1</string>
+    <string name="menu_step2">Step2</string>
+
+    <!--Home -->
+    <string name="text_dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown
+        printer took a galley of type and scrambled it to make a type specimen book.It has survived not only
+        five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like Aldus PageMaker
+        including versions of Lorem Ipsum
+    </string>
+    <string name="read_more">Read more.</string>
+    <string name="read_less">Read less.</string>
+    <string name="text_welcome">Welcome to the app of Donald Community Centre Ltd</string>
+    <string name="text_various_other">Apart from our regular activities we are home for various other local
+        organisations like:
+        \n\n-Cleveland Senior Citizens
+        \n-Orchid Society
+        \n-Genealogical Society
+        \n-and also some U3A activities
+    </string>
+
+    <string name="text_membership_a">Membership is now open for new members and for renewals. The Donald Simpson
+        Community Centre is situated at
+        <b>172 Bloomfield Street, Cleveland</b>.
+    </string>
+
+    <string name="text_membership_b">Please come in, for a tour of the centre and see which activity you fall in love
+        with. While you are at the Centre enjoy our delicacies or espresso coffee at our Hub cafe.
+    </string>
+
+    <string name="benefits_hearing">Donald Simpson Community Centre is equipped with Hearing Loops</string>
+
+    <string name="benefits_wifi">All members and Patrons can access free Wifi at Donald Simpson Centre</string>
+
+    <!--Cafe-->
+    <string name="cafe_intro">The best kept secret at the Donald Simpson Centre is our Cafe. The cafe is run Monday to
+        Friday from 8.30am to 2.30pm. Members can place their orders before classes and pick them up when they get out.
+        Outside visitors are also welcome to enjoy a meal at cafe or our espresso coffee.
+        \n\nAll Lunch orders must be placed before 1.30pm. Afternoon cake and coffee available until 2.30pm.
+        \n\nFor phone orders or bookings call 38211089 and talk to Ann Mason or Vanessa Wintour.
+        \n\nMenu keeps changing regularly. Every 5th espresso made coffee free with your loyalty card. Get one today.
+        Check in for chef specials, and other in house made delights.
+    </string>
+
+    <!--Trips-->
+    <string name="trips_month_name">Month_Name</string>
+    <string name="trips_title_name">Title_Name - Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+
+
+    <!-- Activities -->
+    <string name="activity_year_name">Year_Name</string>
+    <string name="activity_title">Monday 1.00 AM to 2.00 AM.</string>
+
+    <!--More-->
+    <string name="community_projects">Community Projects</string>
+    <string name="dsc_sponsors">DSC Sponsors</string>
+    <string name="contact">Contact</string>
+    <string name="aged_care_navigators_trial">Aged Care Navigators Trial</string>
+    <string name="membership_renewals">Membership/Renewals</string>
+    <string name="newsletter">Newsletter</string>
+    <string name="events">Events</string>
+    <string name="longevity_crc_bid">Longevity CRC Bid</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="click_links">Click the links to download and read the newsletter!</string>
+    <string name="remove_calendar">Remove Calendar</string>
+
+</resources>

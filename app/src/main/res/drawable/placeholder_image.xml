@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:gravity="center"
+            android:left="20dp"
+            android:right="20dp">
+        <bitmap
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:scaleType="center"
+                android:src="@drawable/ic_placeholder_bg" />
+    </item>
+
+</layer-list>

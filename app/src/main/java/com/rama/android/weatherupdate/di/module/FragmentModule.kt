@@ -10,6 +10,7 @@ import com.rama.android.weatherupdate.ui.home.HomeViewModel
 import com.rama.android.weatherupdate.ui.home.ParentAdapter
 import com.rama.android.weatherupdate.ui.base.BaseFragment
 import com.rama.android.weatherupdate.ui.cafe.ParentCafeAdapter
+import com.rama.android.weatherupdate.ui.home.ChildHomeAdapter
 import com.rama.android.weatherupdate.utils.ViewModelProviderFactory
 import com.rama.android.weatherupdate.utils.network.NetworkHelper
 import com.rama.android.weatherupdate.utils.rx.SchedulerProvider
@@ -31,13 +32,22 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
     fun provideParentCafeAdapter() = ParentCafeAdapter(fragment.context, ArrayList())
 
     @Provides
+    fun provideChildHomeAdapter() = ChildHomeAdapter(fragment.context, ArrayList())
+
+    @Provides
     fun provideHomeViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper, homePageRepository: MainRepository
     ): HomeViewModel = ViewModelProviders.of(
         fragment, ViewModelProviderFactory(HomeViewModel::class) {
-            HomeViewModel(schedulerProvider, compositeDisposable, networkHelper, homePageRepository,fragment.context)
+            HomeViewModel(
+                schedulerProvider,
+                compositeDisposable,
+                networkHelper,
+                homePageRepository,
+                fragment.context
+            )
         }).get(HomeViewModel::class.java)
 
     @Provides

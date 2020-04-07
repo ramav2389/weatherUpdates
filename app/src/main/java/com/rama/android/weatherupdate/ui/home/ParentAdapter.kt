@@ -21,7 +21,6 @@ class ParentAdapter(var context: Context?, private var parents: List<CityData>) 
     private var counter: Int = 0
     private var selectedCityList: MutableList<Int> = ArrayList<Int>()
     private var mViewTapListener: IViewTapCallback? = null
-    private val sb = StringBuilder()
 
     fun addData(data: List<CityData>, shouldClear: Boolean) {
         if (shouldClear)
@@ -69,20 +68,26 @@ class ParentAdapter(var context: Context?, private var parents: List<CityData>) 
         var selected: Boolean = false
         vh.tvSimple.text = parents[position].name
         vh.tvSimple.setOnClickListener(View.OnClickListener {
-            if (selected == false && counter <= 5) {
+            if (selected == false && counter < 5) {
                 selected = true
                 counter++
                 vh.itemView.setBackgroundColor(R.color.blue)
                 selectedCityList.add(parents[position].id)
-                mViewTapListener?.onViewTapped(selectedCityList, holder)
+                mViewTapListener?.onViewTapped(
+                    selectedCityList.take(5).distinctBy { parents[position].name },
+                    holder
+                )
                 context?.let { it1 -> Toaster.show(it1, "Selected" + selectedCityList) }
             } else if (selected) {
                 selected = false
                 counter--
                 selectedCityList.remove(parents[position].id)
+                mViewTapListener?.onViewTapped(
+                    selectedCityList.take(5).distinctBy { parents[position].name },
+                    holder
+                )
+                context?.let { it1 -> Toaster.show(it1, "Selected" + selectedCityList) }
                 vh.itemView.setBackgroundColor(android.R.color.white)
-                context?.let { it1 -> Toaster.show(it1, "UnSelected") }
-
             }
         })
     }

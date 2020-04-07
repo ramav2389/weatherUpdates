@@ -3,6 +3,7 @@ package com.rama.android.weatherupdate.ui.home
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.rama.android.weatherupdate.R
 import com.rama.android.weatherupdate.di.component.FragmentComponent
 import com.rama.android.weatherupdate.model.CityData
 import com.rama.android.weatherupdate.model.HomeActivity
+import com.rama.android.weatherupdate.model.ListParams
 import com.rama.android.weatherupdate.ui.base.BaseFragment
 import com.rama.android.weatherupdate.ui.interfaces.IViewTapCallback
 import com.rama.android.weatherupdate.utils.common.Toaster
@@ -34,6 +36,7 @@ class HomeFragment : IViewTapCallback, BaseFragment<HomeViewModel>() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var request: Button
+    lateinit var result: RecyclerView
 
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
@@ -41,9 +44,11 @@ class HomeFragment : IViewTapCallback, BaseFragment<HomeViewModel>() {
     @Inject
     lateinit var parentAdapter: ParentAdapter
 
+    @Inject
+    lateinit var childHomeAdapter: ChildHomeAdapter
+
     var cityList: List<CityData> = ArrayList()
     var selectedCityList: MutableList<Int> = ArrayList()
-    var resultList: List<HomeActivity> = ArrayList()
 
     override fun provideLayoutId(): Int = R.layout.fragment_home
 
@@ -55,6 +60,13 @@ class HomeFragment : IViewTapCallback, BaseFragment<HomeViewModel>() {
         super.setupObservers()
         viewModel.allHomeData.observe(this, Observer {
             Logger.d("List", it.toString())
+            var listParams: List<ListParams> = it
+            recyclerView = rv_child
+            recyclerView.apply {
+                layoutManager = LinearLayoutManager(context)
+                childHomeAdapter.addData(listParams, false)
+                adapter = childHomeAdapter
+            }
         })
 
         viewModel.allCityData.observe(this, Observer {

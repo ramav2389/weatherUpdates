@@ -8,14 +8,13 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.rama.android.weatherupdate.R
 import com.rama.android.weatherupdate.model.CityData
-import com.rama.android.weatherupdate.model.Data
+import com.rama.android.weatherupdate.model.ListParams
 import com.rama.android.weatherupdate.repository.MainRepository
 import com.rama.android.weatherupdate.ui.base.BaseViewModel
 import com.rama.android.weatherupdate.utils.log.Logger
 import com.rama.android.weatherupdate.utils.network.NetworkHelper
 import com.rama.android.weatherupdate.utils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
-import org.json.JSONArray
 import java.io.*
 
 
@@ -26,7 +25,7 @@ class HomeViewModel(
     private val homePageRepository: MainRepository, val context: Context?
 ) : BaseViewModel(schedulerProvider, compositeDisposable, networkHelper) {
 
-    val allHomeData = MutableLiveData<List<Data>>()
+    val allHomeData = MutableLiveData<List<ListParams>>()
     val allCityData = MutableLiveData<Array<CityData>>()
     val loading: MutableLiveData<Boolean> = MutableLiveData()
 
@@ -86,7 +85,7 @@ class HomeViewModel(
                 ?.subscribe(
                     {
                         loading.postValue(false)
-                        allHomeData.postValue(it)
+                        allHomeData.postValue(it.list)
                         Logger.e("the response", it.toString())
                     },
                     {

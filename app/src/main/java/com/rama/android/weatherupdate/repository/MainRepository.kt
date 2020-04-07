@@ -10,7 +10,7 @@ class MainRepository @Inject constructor(
     private val networkService: NetworkService
 ) {
 
-    fun fetchHomePage(selectedCity: String): Single<List<Data>>? =
+    fun fetchHomePage(selectedCity: String): Single<Json4Kotlin_Base>? =
         networkService.doHomePageCall(
             selectedCity,
             "metrics",

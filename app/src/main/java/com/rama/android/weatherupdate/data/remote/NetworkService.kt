@@ -1,7 +1,7 @@
 package com.rama.android.weatherupdate.data.remote
 
 import com.rama.android.weatherupdate.data.remote.response.*
-import com.rama.android.weatherupdate.model.Data
+import com.rama.android.weatherupdate.model.Json4Kotlin_Base
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -17,7 +17,7 @@ interface NetworkService {
         @Query(Network.HEADER_AUTHORIZATION_TOKEN) authorizationToken: String,
         @Header(Network.HEADER_ACCEPT) accept: String,
         @Header(Network.HEADER_CONTENT_TYPE) contentType: String
-    ): Single<List<Data>>
+    ): Single<Json4Kotlin_Base>
 
 
     @GET(Endpoints.STEP2)
